@@ -1,4 +1,5 @@
-import '@/styles/globals.css'
+import '@/styles/globals.css';
+import '@/styles/fallback.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Footer from '@/components/Footer';

@@ -1,0 +1,17 @@
+.bg-clip-text {
+  background-color: #custom-green; /* fallback para navegadores que não suportam a propriedade */
+  background-image: linear-gradient(
+    to right,
+    #custom-orange,
+    #custom-red,
+    #custom-violet
+  ); /* gradiente para navegadores que suportam a propriedade */
+  -webkit-background-clip: text; /* prefixo do fornecedor para navegadores Webkit */
+  -moz-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
