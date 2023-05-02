@@ -23,8 +23,8 @@ const Header = () => {
                 </div>
 
                 {/* LINKS - DESKTOP */}
-                <div className="hidden sm:flex">
-                    <ul className="hidden sm:flex m-0">
+                <div className="hidden md:flex">
+                    <ul className="hidden md:flex m-0">
                         <Link href="/about" className="no-underline decoration-0 text-custom-gray-100 hover:text-custom-white">
                             <li className="ml-10 text-md">Sobre mim</li>
                         </Link>
@@ -44,15 +44,15 @@ const Header = () => {
                 </div>
 
                 {/* HAMBURGUER MENU */}
-                <div onClick={handleNav} className="sm:hidden cursor-pointer pl-4">
+                <div onClick={handleNav} className="md:hidden cursor-pointer pl-4">
                     <AiOutlineMenu size={25} />
                 </div>
 
                 {/* OFFCANVAS - MOBILE */}
                 <div className={
                     menuOpen
-                        ? 'fixed right-0 top-0 w-[75%] sm:hidden h-screen bg-custom-black-600 p-3 ease-linear duration-300 z-10'
-                        : 'fixed right-[-100%] h-screen top-0 p-3 ease-in duration-500 overflow-auto'
+                        ? 'fixed right-0 top-0 w-[75%] lg:hidden h-screen bg-custom-black-600 p-3 ease-linear duration-300 z-10'
+                        : 'fixed right-[-100%] h-screen top-0 p-3 ease-in duration-500 overflow-auto z-10'
                 }>
                     <div className="flex w-full items-center justify-end">
                         <div onClick={handleNav} className="cursor-pointer">
