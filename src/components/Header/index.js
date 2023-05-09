@@ -1,6 +1,10 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
+
+import Logo from '../Logo';
+import Underline from '../assets/underline.svg';
 
 
 const Header = () => {
@@ -17,28 +21,33 @@ const Header = () => {
 
                 {/* LOGO */}
                 <div className='h-full w-full flex items-center'>
-                    <Link href="/" className="text-custom-gray-100 no-underline decoration-0 flex items-center hover:text-custom-white">
-                        <h3 className="font-serif uppercase tracking-widest text-xl mb-0">cetta</h3>
+                    <Link href="/" className="flex no-underline decoration-0 items-center justify-center">
+                        <Logo className="flex font-serif uppercase text-center text-custom-gray-100 mb-0 text-xl" />
                     </Link>
                 </div>
 
                 {/* LINKS - DESKTOP */}
                 <div className="hidden md:flex">
-                    <ul className="hidden md:flex m-0">
-                        <Link href="/about" className="no-underline decoration-0 text-custom-gray-100 hover:text-custom-white">
-                            <li className="ml-10 text-md">Sobre mim</li>
+                    <ul className="hidden m-0 md:flex md:space-x-10">
+                        <Link href="/about" className="group flex flex-col items-center justify-center no-underline decoration-0 text-custom-gray-100  hover:text-custom-white">
+                            <li className="text-md">Sobre mim</li>
+                            <Image className="hidden relative group-hover:flex transition ease-in-out duration-300" src={Underline} alt="" width={60} />
                         </Link>
-                        <Link href="/projects" className="no-underline decoration-0 text-custom-gray-100 hover:text-custom-white">
-                            <li className="ml-10 text-md">Projetos</li>
+                        <Link href="/projects" className="group flex flex-col items-center justify-center no-underline decoration-0 text-custom-gray-100  hover:text-custom-white">
+                            <li className="text-md">Projetos</li>
+                            <Image className="hidden relative group-hover:flex transition ease-in-out duration-300" src={Underline} alt="" width={60} />
                         </Link>
-                        <Link href="/curriculum" className="no-underline decoration-0 text-custom-gray-100 hover:text-custom-white">
-                            <li className="ml-10 text-md">Currículo</li>
+                        <Link href="/curriculum" className="group flex flex-col items-center justify-center no-underline decoration-0 text-custom-gray-100  hover:text-custom-white">
+                            <li className="text-md">Currículo</li>
+                            <Image className="hidden relative group-hover:flex transition ease-in-out duration-300" src={Underline} alt="" width={60} />
                         </Link>
-                        <Link href="/skills" className="no-underline decoration-0 text-custom-gray-100 hover:text-custom-white">
-                            <li className="ml-10 text-md">Conhecimentos</li>
+                        <Link href="/skills" className="group flex flex-col items-center justify-center no-underline decoration-0 text-custom-gray-100  hover:text-custom-white">
+                            <li className="text-md">Conhecimentos</li>
+                            <Image className="hidden relative group-hover:flex transition ease-in-out duration-300" src={Underline} alt="" width={60} />
                         </Link>
-                        <Link href="/others" className="no-underline decoration-0 text-custom-gray-100 hover:text-custom-white">
-                            <li className="ml-10 text-md">Outros</li>
+                        <Link href="/others" className="group flex flex-col items-center justify-center no-underline decoration-0 text-custom-gray-100  hover:text-custom-white">
+                            <li className="text-md">Outros</li>
+                            <Image className="hidden relative group-hover:flex transition ease-in-out duration-300" src={Underline} alt="" width={60} />
                         </Link>
                     </ul>
                 </div>

@@ -10,7 +10,7 @@ export default function Homepage() {
       <div className="w-full tn:order-last lg:order-first">
         <div className="h-full flex tn:text-center tn:mt-8 lg:text-left">
           <h2 className="text-5xl xl:text-7xl text-custom-black-800 font-serif border-custom-black-800">Olá,
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-custom-violet via-custom-orange to-custom-red">eu sou Luis Cetta,</span> desenvolvedor front-end.</h2>
+            <span className="ml-1 bg-clip-text text-transparent bg-gradient-to-r from-custom-violet via-custom-orange to-custom-red">eu sou Luis Cetta,</span> desenvolvedor front-end.</h2>
         </div>
         <div className="mt-4 tn:text-center lg:text-left">
           <p className="font-sans text-md tn:text-md md:text-lg text-custom-black-600">Desenvolvedor com um pouco mais de 2 anos de experiência em Front-end. Aqui você irá me conhecer um pouco mais, tanto profissionalmente quanto pessoalmente!</p>
@@ -22,7 +22,7 @@ export default function Homepage() {
       </div>
 
       <div className="w-full flex justify-center align-middle tn:order-first lg:order-first">
-        <HomeImage className="rounded-full grayscale contrast-125"/>
+        <HomeImage className="rounded-full grayscale contrast-125" />
       </div>
     </main>
   )

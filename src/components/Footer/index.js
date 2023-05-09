@@ -35,7 +35,7 @@ export default function Footer() {
                     </Link>
                 </div>
                 <div className="flex items-center justify-center w-ful space-x-1">
-                    <Logo />
+                    <Logo className="flex font-serif uppercase text-center text-custom-gray-100 mb-0 text-sm" />
                     <p className="mb-0 text-sm text-custom-gray-100"><span className="text-custom-orange font-serif">©</span> {today.getFullYear()}</p>
                 </div>
             </div>

@@ -40,6 +40,9 @@ module.exports = {
       '2xl': '1536px',
     },
     extend: {
+      zIndex: {
+        '-1': -1,
+      }
     }
   },
   plugins: [],
