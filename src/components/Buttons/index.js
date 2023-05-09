@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import React from 'react';
+import { BsArrowUpSquareFill } from 'react-icons/bs'
 
-export function PrimaryButton({ text, href, className }) {
+export const PrimaryButton = ({ text, href, className }) => {
     return (
         <Link
             href={href}
@@ -12,7 +13,7 @@ export function PrimaryButton({ text, href, className }) {
     );
 }
 
-export function SecondaryButton({ text, href, className }) {
+export const SecondaryButton = ({ text, href, className }) => {
     return (
         <Link
             href={href}
@@ -20,5 +21,24 @@ export function SecondaryButton({ text, href, className }) {
         >
             {text}
         </Link>
+    );
+}
+
+export const BackToTopBtn = ({ className }) => {
+    const handleBackToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+    };
+
+    return (
+        <button
+            onClick={handleBackToTop}
+            id="back-to-top"
+            className={className}
+        >
+            <BsArrowUpSquareFill className={className} />
+        </button>
     );
 }

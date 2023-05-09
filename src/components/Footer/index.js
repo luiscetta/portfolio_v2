@@ -9,7 +9,7 @@ import Tooltips from '@/utils/Tooltips';
 
 import Logo from '../Logo';
 
-export default function Footer() {
+const Footer = () => {
     const today = new Date();
 
     return (
@@ -42,3 +42,5 @@ export default function Footer() {
         </div>
     );
 }
+
+export default Footer;

@@ -3,18 +3,20 @@ import Image from 'next/image';
 
 import mySelf from '../../assets/profile2.png';
 
-export default function HomeImage({ className, sizes }) {
+const HomeImage = ({ className, height, width }) => {
     return (
-        <div className="bg-gradient-to-br from-custom-violet via-custom-orange to-custom-red rounded-full">
+        <div className="w-full bg-gradient-to-br from-custom-violet via-custom-orange to-custom-red rounded-full">
             <Image
                 src={mySelf}
                 alt="my profile photo"
-                height={500}
-                width={500}
-                sizes="(max-width: 1020px) 50vw, 500px"
+                height={height}
+                width={width}
+                sizes="(max-width: 480px) 50vw, (max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className={className}
                 priority
             />
         </div>
     );
 }
+
+export default HomeImage;

@@ -4,7 +4,7 @@ import Lottie from 'lottie-react';
 import animationData from '../json/email.json';
 
 
-export default function EmailAnimation({ className }) {
+const EmailAnimation = ({ className }) => {
     return (
         <>
             <Lottie
@@ -13,4 +13,7 @@ export default function EmailAnimation({ className }) {
             />
         </>
     );
-}
+};
+
+export default EmailAnimation;
+
