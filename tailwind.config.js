@@ -12,6 +12,7 @@ module.exports = {
         red: '#F83457',
         violet: '#ad76da',
         black: {
+          400: '#40484F',
           600: '#312F2D',
           800: '#171513',
         },
@@ -24,6 +25,7 @@ module.exports = {
     width: {
       '90': '90%',
       '95': '95%',
+      '98': '98%',
     },
     fontFamily: {
       sans: ['Roboto', 'sans-serif'],

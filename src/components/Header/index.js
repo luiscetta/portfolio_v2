@@ -17,8 +17,8 @@ const Header = () => {
 
                 {/* LOGO */}
                 <div className='h-full w-full flex items-center'>
-                    <Link href="/" className="text-custom-white no-underline decoration-0 flex items-center">
-                        <h3 className="font-serif uppercase tracking-widest text-lg">cetta</h3>
+                    <Link href="/" className="text-custom-gray-100 no-underline decoration-0 flex items-center hover:text-custom-white">
+                        <h3 className="font-serif uppercase tracking-widest text-xl mb-0">cetta</h3>
                     </Link>
                 </div>
 
