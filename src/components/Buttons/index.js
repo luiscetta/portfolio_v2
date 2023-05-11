@@ -1,6 +1,8 @@
+
 import Link from 'next/link';
 import React from 'react';
 import { BsArrowUpSquareFill } from 'react-icons/bs'
+
 
 export const PrimaryButton = ({ text, href, className }) => {
     return (
@@ -11,7 +13,7 @@ export const PrimaryButton = ({ text, href, className }) => {
             {text}
         </Link>
     );
-}
+};
 
 export const SecondaryButton = ({ text, href, className }) => {
     return (
@@ -22,7 +24,7 @@ export const SecondaryButton = ({ text, href, className }) => {
             {text}
         </Link>
     );
-}
+};
 
 export const BackToTopBtn = ({ className }) => {
     const handleBackToTop = () => {
@@ -41,4 +43,4 @@ export const BackToTopBtn = ({ className }) => {
             <BsArrowUpSquareFill className={className} />
         </button>
     );
-}
+};
