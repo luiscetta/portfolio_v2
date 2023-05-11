@@ -4,22 +4,26 @@ import cookies from "js-cookie";
 import { GoPrimitiveDot } from 'react-icons/go';
 import { MdOutlineLanguage } from 'react-icons/md';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
+import { ptBR, enUS } from '../../translations';
 
 const LanguageDropdown = () => {
     const router = useRouter();
-    const [locale, setLocale] = useState(router.locale || "pt-BR");
+    const { locale } = router;
+    const [language, setLanguage] = useState(router.locale || "pt-BR");
+
+    const trans = locale === "pt-BR" ? ptBR : enUS;
 
     useEffect(() => {
         const storedLocale = cookies.get("locale");
         if (storedLocale && storedLocale !== router.locale) {
             router.replace(router.asPath, router.asPath, { locale: storedLocale });
-            setLocale(storedLocale);
+            setLanguage(storedLocale);
         }
     }, [router]);
 
     const chooseLanguage = (selectedLocale) => {
         router.replace(router.asPath, selectedLocale, { locale: selectedLocale, scroll: false });
-        setLocale(selectedLocale);
+        setLanguage(selectedLocale);
         cookies.set("locale", selectedLocale);
     }
 
@@ -30,7 +34,7 @@ const LanguageDropdown = () => {
                     className="rounded-full w-[35px] h-[35px] inline-flex items-center justify-center bg-gradient-to-r from-custom-violet via-custom-orange to-custom-red shadow-[0_2px_10px] outline-none hover:bg-violet3 focus:shadow-[0_0_0_2px] focus:shadow-custom-white"
                     aria-label="Customise options"
                 >
-                    <MdOutlineLanguage size={25} className="text-custom-black-800"/>
+                    <MdOutlineLanguage size={25} className="text-custom-black-800" />
                 </button>
             </DropdownMenu.Trigger>
 
@@ -40,11 +44,11 @@ const LanguageDropdown = () => {
                     sideOffset={5}
                 >
                     <DropdownMenu.Label className="flex justify-center text-[.8rem] font-serif uppercase tracking-wider leading-[25px]">
-                        Idioma
+                        {trans.dropdown.title}
                     </DropdownMenu.Label>
                     <DropdownMenu.Separator className="h-[1px] bg-violet6 m-[5px] bg-custom-black-400" />
 
-                    <DropdownMenu.RadioGroup value={locale} onValueChange={chooseLanguage}>
+                    <DropdownMenu.RadioGroup value={language} onValueChange={chooseLanguage}>
                         <DropdownMenu.RadioItem
                             className="text-sm cursor-pointer leading-none rounded-[3px] flex items-center h-[25px] px-[5px] relative pl-[25px] select-none outline-none data-[disabled]:pointer-events-none hover:bg-custom-black-800 hover:text-custom-white hover:font-bold transition-colors"
                             value="pt-BR"

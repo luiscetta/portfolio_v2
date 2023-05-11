@@ -1,7 +1,7 @@
 export const HOME_PT = {
     home: {
         title: {
-            t1: "Olá!",
+            t1: "Olá,",
             span: "eu sou Luis Cetta,",
             t2: "desenvolvedor Front-end.",
         },
