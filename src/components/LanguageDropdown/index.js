@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import cookies from "js-cookie";
 import { IoIosArrowForward } from 'react-icons/io';
 import { MdOutlineLanguage } from 'react-icons/md';
@@ -11,18 +11,22 @@ const LanguageDropdown = () => {
     const { locale } = router;
     const [language, setLanguage] = useState(router.locale || "pt-BR");
 
-    const trans = locale === "pt-BR" ? ptBR : enUS;
+    const trans = useMemo(() => {
+        return locale === "pt-BR" ? ptBR : enUS;
+    }, [locale]);
 
     useEffect(() => {
         const storedLocale = cookies.get("locale");
         if (storedLocale && storedLocale !== router.locale) {
-            router.replace(router.asPath, router.asPath, { locale: storedLocale });
+            router.push(router.asPath, router.asPath, { locale: storedLocale });
             setLanguage(storedLocale);
+            cookies.set("locale", storedLocale);
         }
     }, [router]);
 
     const chooseLanguage = (selectedLocale) => {
-        router.replace(router.asPath, selectedLocale, { locale: selectedLocale, scroll: false });
+        router.push(router.pathname, selectedLocale, { locale: selectedLocale, scroll: false });
+        console.log(router.pathname);
         setLanguage(selectedLocale);
         cookies.set("locale", selectedLocale);
     }
