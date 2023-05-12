@@ -5,11 +5,17 @@ import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 
 import Logo from '../Logo';
 import Underline from '../assets/underline.svg';
+import { ptBR, enUS } from '@/translations';
+import { useRouter } from 'next/router';
 
 
 const Header = () => {
-    const [menuOpen, setMenuOpen] = useState(false);
+    const router = useRouter();
+    const { locale } = router;
 
+    const trans = locale === "pt-BR" ? ptBR : enUS;
+
+    const [menuOpen, setMenuOpen] = useState(false);
     const handleNav = () => {
         setMenuOpen(!menuOpen);
         document.body.classList.toggle('overflow-hidden', !menuOpen);
@@ -18,7 +24,6 @@ const Header = () => {
     return (
         <nav className="w-full h-16 shadow-xl bg-custom-black-800">
             <div className="flex justify-between items-center text-custom-white h-full w-95 m-auto 2xl:px-16">
-
                 {/* LOGO */}
                 <div className='h-full w-full flex items-center'>
                     <Link href="/" className="flex no-underline decoration-0 items-center justify-center">
@@ -30,23 +35,23 @@ const Header = () => {
                 <div className="hidden md:flex">
                     <ul className="hidden m-0 md:flex md:space-x-10">
                         <Link href="/about" className="group flex flex-col items-center justify-center no-underline decoration-0 text-custom-gray-100  hover:text-custom-white">
-                            <li className="text-md">Sobre mim</li>
+                            <li className="text-md">{trans.header.links.aboutMe}</li>
                             <Image className="hidden relative group-hover:flex transition ease-in-out duration-300" src={Underline} alt="" width={60} />
                         </Link>
                         <Link href="/projects" className="group flex flex-col items-center justify-center no-underline decoration-0 text-custom-gray-100  hover:text-custom-white">
-                            <li className="text-md">Projetos</li>
+                            <li className="text-md">{trans.header.links.projects}</li>
                             <Image className="hidden relative group-hover:flex transition ease-in-out duration-300" src={Underline} alt="" width={60} />
                         </Link>
                         <Link href="/curriculum" className="group flex flex-col items-center justify-center no-underline decoration-0 text-custom-gray-100  hover:text-custom-white">
-                            <li className="text-md">Currículo</li>
+                            <li className="text-md">{trans.header.links.curriculum}</li>
                             <Image className="hidden relative group-hover:flex transition ease-in-out duration-300" src={Underline} alt="" width={60} />
                         </Link>
                         <Link href="/skills" className="group flex flex-col items-center justify-center no-underline decoration-0 text-custom-gray-100  hover:text-custom-white">
-                            <li className="text-md">Conhecimentos</li>
+                            <li className="text-md">{trans.header.links.skills}</li>
                             <Image className="hidden relative group-hover:flex transition ease-in-out duration-300" src={Underline} alt="" width={60} />
                         </Link>
                         <Link href="/others" className="group flex flex-col items-center justify-center no-underline decoration-0 text-custom-gray-100  hover:text-custom-white">
-                            <li className="text-md">Outros</li>
+                            <li className="text-md">{trans.header.links.others}</li>
                             <Image className="hidden relative group-hover:flex transition ease-in-out duration-300" src={Underline} alt="" width={60} />
                         </Link>
                     </ul>
@@ -71,19 +76,19 @@ const Header = () => {
                     <div className="grid mt-16 justify-center">
                         <ul className="text-center p-0 col">
                             <Link href="/about" className="no-underline decoration-0 text-custom-gray-100 hover:text-custom-white">
-                                <li onClick={() => setMenuOpen(false)} className="text-2xl leading-loose">Sobre mim</li>
+                                <li onClick={() => setMenuOpen(false)} className="text-2xl leading-loose">{trans.header.links.aboutMe}</li>
                             </Link>
                             <Link href="/projects" className="no-underline decoration-0 text-custom-gray-100 hover:text-custom-white">
-                                <li onClick={() => setMenuOpen(false)} className="text-2xl leading-loose">Projetos</li>
+                                <li onClick={() => setMenuOpen(false)} className="text-2xl leading-loose">{trans.header.links.projects}</li>
                             </Link>
                             <Link href="/curriculum" className="no-underline decoration-0 text-custom-gray-100 hover:text-custom-white">
-                                <li onClick={() => setMenuOpen(false)} className="text-2xl leading-loose">Currículo</li>
+                                <li onClick={() => setMenuOpen(false)} className="text-2xl leading-loose">{trans.header.links.curriculum}</li>
                             </Link>
                             <Link href="/skills" className="no-underline decoration-0 text-custom-gray-100 hover:text-custom-white">
-                                <li onClick={() => setMenuOpen(false)} className="text-2xl leading-loose">Conhecimentos</li>
+                                <li onClick={() => setMenuOpen(false)} className="text-2xl leading-loose">{trans.header.links.skills}</li>
                             </Link>
                             <Link href="/others" className="no-underline decoration-0 text-custom-gray-100 hover:text-custom-white">
-                                <li onClick={() => setMenuOpen(false)} className="text-2xl leading-loose">Outros</li>
+                                <li onClick={() => setMenuOpen(false)} className="text-2xl leading-loose">{trans.header.links.others}</li>
                             </Link>
                         </ul>
 
@@ -93,7 +98,6 @@ const Header = () => {
                         </div>
                     </div>
                 </div>
-
             </div>
         </nav>
     );
