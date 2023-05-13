@@ -1,33 +1,28 @@
-import { useRouter } from 'next/router';
 import React, { useEffect, useMemo, useState } from 'react';
-import cookies from "js-cookie";
+import Cookies from "js-cookie";
 import { IoIosArrowForward } from 'react-icons/io';
 import { MdOutlineLanguage } from 'react-icons/md';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import { ptBR, enUS } from '../../translations';
+import { useTranslation } from 'react-i18next';
 
 const LanguageDropdown = () => {
-    const router = useRouter();
-    const { locale } = router;
-    const [language, setLanguage] = useState(router.locale || "pt-BR");
-
-    const trans = useMemo(() => {
-        return locale === "pt-BR" ? ptBR : enUS;
-    }, [locale]);
+    const { t, i18n } = useTranslation();
+    const [language, setLanguage] = useState("en");
+    const storedLanguage = Cookies.get("language");
 
     useEffect(() => {
-        const storedLocale = cookies.get("locale");
-        if (storedLocale && storedLocale !== router.locale) {
-            router.push(router.asPath, router.asPath, { locale: storedLocale });
-            setLanguage(storedLocale);
-            cookies.set("locale", storedLocale);
+        if (storedLanguage) {
+            i18n.changeLanguage(storedLanguage);
+            setLanguage(storedLanguage);
+        } else {
+            setLanguage(i18n.language);
         }
-    }, [router]);
+    }, [i18n, storedLanguage]);
 
-    const chooseLanguage = (selectedLocale) => {
-        router.push(router.pathname, router.asPath, { locale: selectedLocale, scroll: false });
-        setLanguage(selectedLocale);
-        cookies.set("locale", selectedLocale);
+    const handleLanguageChange = (selectedLanguage) => {
+        i18n.changeLanguage(selectedLanguage);
+        setLanguage(selectedLanguage);
+        Cookies.set('language', selectedLanguage);
     }
 
     return (
@@ -47,14 +42,14 @@ const LanguageDropdown = () => {
                     sideOffset={5}
                 >
                     <DropdownMenu.Label className="flex justify-center text-[.8rem] font-serif uppercase tracking-wider leading-[25px]">
-                        {trans.dropdown.title}
+                        {t('dropdown.title')}
                     </DropdownMenu.Label>
                     <DropdownMenu.Separator className="h-[1px] bg-violet6 m-[5px] bg-custom-black-400" />
 
-                    <DropdownMenu.RadioGroup value={language} onValueChange={(event, value) => chooseLanguage({ selectedLocale: value, e: event })}>
+                    <DropdownMenu.RadioGroup value={language} onValueChange={handleLanguageChange}>
                         <DropdownMenu.RadioItem
                             className="text-xs cursor-pointer leading-none rounded-[3px] flex items-center h-[25px] px-[5px] relative pl-[25px] select-none outline-none data-[disabled]:pointer-events-none hover:bg-custom-black-800 hover:text-custom-white hover:font-bold transition-colors"
-                            value="pt-BR"
+                            value="pt"
                         >
                             <DropdownMenu.ItemIndicator className="absolute left-0 w-[25px] inline-flex items-center justify-center">
                                 <IoIosArrowForward />
@@ -63,7 +58,7 @@ const LanguageDropdown = () => {
                         </DropdownMenu.RadioItem>
                         <DropdownMenu.RadioItem
                             className="text-xs cursor-pointer leading-none rounded-[3px] flex items-center h-[25px] px-[5px] relative pl-[25px] select-none outline-none data-[disabled]:pointer-events-none hover:bg-custom-black-800 hover:text-custom-white hover:font-bold transition-colors"
-                            value="en-US"
+                            value="en"
                         >
                             <DropdownMenu.ItemIndicator className="absolute left-0 w-[25px] inline-flex items-center justify-center">
                                 <IoIosArrowForward />

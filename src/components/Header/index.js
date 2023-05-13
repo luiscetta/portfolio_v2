@@ -7,13 +7,11 @@ import Logo from '../Logo';
 import Underline from '../assets/underline.svg';
 import { ptBR, enUS } from '@/translations';
 import { useRouter } from 'next/router';
+import { useTranslation } from 'react-i18next';
 
 
 const Header = () => {
-    const router = useRouter();
-    const { locale } = router;
-
-    const trans = locale === "pt-BR" ? ptBR : enUS;
+    const { t } = useTranslation();
 
     const [menuOpen, setMenuOpen] = useState(false);
     const handleNav = () => {
@@ -35,23 +33,23 @@ const Header = () => {
                 <div className="hidden md:flex">
                     <ul className="hidden m-0 md:flex md:space-x-10">
                         <Link href="/about" className="group flex flex-col items-center justify-center no-underline decoration-0 text-custom-gray-100  hover:text-custom-white">
-                            <li className="text-md">{trans.header.links.aboutMe}</li>
+                            <li className="text-md">{t('header.links.aboutMe')}</li>
                             <Image className="hidden relative group-hover:flex transition ease-in-out duration-300" src={Underline} alt="" width={60} />
                         </Link>
                         <Link href="/projects" className="group flex flex-col items-center justify-center no-underline decoration-0 text-custom-gray-100  hover:text-custom-white">
-                            <li className="text-md">{trans.header.links.projects}</li>
+                            <li className="text-md">{t('header.links.projects')}</li>
                             <Image className="hidden relative group-hover:flex transition ease-in-out duration-300" src={Underline} alt="" width={60} />
                         </Link>
                         <Link href="/curriculum" className="group flex flex-col items-center justify-center no-underline decoration-0 text-custom-gray-100  hover:text-custom-white">
-                            <li className="text-md">{trans.header.links.curriculum}</li>
+                            <li className="text-md">{t('header.links.curriculum')}</li>
                             <Image className="hidden relative group-hover:flex transition ease-in-out duration-300" src={Underline} alt="" width={60} />
                         </Link>
                         <Link href="/skills" className="group flex flex-col items-center justify-center no-underline decoration-0 text-custom-gray-100  hover:text-custom-white">
-                            <li className="text-md">{trans.header.links.skills}</li>
+                            <li className="text-md">{t('header.links.skills')}</li>
                             <Image className="hidden relative group-hover:flex transition ease-in-out duration-300" src={Underline} alt="" width={60} />
                         </Link>
                         <Link href="/others" className="group flex flex-col items-center justify-center no-underline decoration-0 text-custom-gray-100  hover:text-custom-white">
-                            <li className="text-md">{trans.header.links.others}</li>
+                            <li className="text-md">{t('header.links.others')}</li>
                             <Image className="hidden relative group-hover:flex transition ease-in-out duration-300" src={Underline} alt="" width={60} />
                         </Link>
                     </ul>
@@ -76,19 +74,19 @@ const Header = () => {
                     <div className="grid mt-16 justify-center">
                         <ul className="text-center p-0 col">
                             <Link href="/about" className="no-underline decoration-0 text-custom-gray-100 hover:text-custom-white">
-                                <li onClick={() => setMenuOpen(false)} className="text-2xl leading-loose">{trans.header.links.aboutMe}</li>
+                                <li onClick={() => setMenuOpen(false)} className="text-2xl leading-loose">{t('header.links.aboutMe')}</li>
                             </Link>
                             <Link href="/projects" className="no-underline decoration-0 text-custom-gray-100 hover:text-custom-white">
-                                <li onClick={() => setMenuOpen(false)} className="text-2xl leading-loose">{trans.header.links.projects}</li>
+                                <li onClick={() => setMenuOpen(false)} className="text-2xl leading-loose">{t('header.links.projects')}</li>
                             </Link>
                             <Link href="/curriculum" className="no-underline decoration-0 text-custom-gray-100 hover:text-custom-white">
-                                <li onClick={() => setMenuOpen(false)} className="text-2xl leading-loose">{trans.header.links.curriculum}</li>
+                                <li onClick={() => setMenuOpen(false)} className="text-2xl leading-loose">{t('header.links.curriculum')}</li>
                             </Link>
                             <Link href="/skills" className="no-underline decoration-0 text-custom-gray-100 hover:text-custom-white">
-                                <li onClick={() => setMenuOpen(false)} className="text-2xl leading-loose">{trans.header.links.skills}</li>
+                                <li onClick={() => setMenuOpen(false)} className="text-2xl leading-loose">{t('header.links.skills')}</li>
                             </Link>
                             <Link href="/others" className="no-underline decoration-0 text-custom-gray-100 hover:text-custom-white">
-                                <li onClick={() => setMenuOpen(false)} className="text-2xl leading-loose">{trans.header.links.others}</li>
+                                <li onClick={() => setMenuOpen(false)} className="text-2xl leading-loose">{t('header.links.other')}</li>
                             </Link>
                         </ul>
 

@@ -1,6 +1,6 @@
 export const HOME_PT = {
     home: {
-        header: "Página Inicial || CETTA",
+        header: "Página Inicial // CETTA",
         title: {
             t1: "Olá,",
             span: "eu sou Luis Cetta,",
@@ -16,7 +16,7 @@ export const HOME_PT = {
 
 export const HOME_US = {
     home: {
-        header: "Home|| CETTA",
+        header: "Home // CETTA",
         title: {
             t1: "Hello,",
             span: "I'm Luis Cetta,",
