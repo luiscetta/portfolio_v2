@@ -25,8 +25,7 @@ const LanguageDropdown = () => {
     }, [router]);
 
     const chooseLanguage = (selectedLocale) => {
-        router.push(router.pathname, selectedLocale, { locale: selectedLocale, scroll: false });
-        console.log(router.pathname);
+        router.push(router.pathname, router.asPath, { locale: selectedLocale, scroll: false });
         setLanguage(selectedLocale);
         cookies.set("locale", selectedLocale);
     }
@@ -52,7 +51,7 @@ const LanguageDropdown = () => {
                     </DropdownMenu.Label>
                     <DropdownMenu.Separator className="h-[1px] bg-violet6 m-[5px] bg-custom-black-400" />
 
-                    <DropdownMenu.RadioGroup value={language} onValueChange={chooseLanguage}>
+                    <DropdownMenu.RadioGroup value={language} onValueChange={(event, value) => chooseLanguage({ selectedLocale: value, e: event })}>
                         <DropdownMenu.RadioItem
                             className="text-xs cursor-pointer leading-none rounded-[3px] flex items-center h-[25px] px-[5px] relative pl-[25px] select-none outline-none data-[disabled]:pointer-events-none hover:bg-custom-black-800 hover:text-custom-white hover:font-bold transition-colors"
                             value="pt-BR"
